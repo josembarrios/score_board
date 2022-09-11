@@ -1,9 +1,9 @@
 package com.github.josembarrios.junit;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.rules.TestName;
-import org.apache.log4j.Logger;
 
 import com.github.josembarrios.ScoreBoardApplication;
 import com.github.josembarrios.exception.ScoreBoardException;
@@ -29,7 +29,7 @@ public abstract class ScoreBoardCommonsTest {
     protected static  MatchTeam teamArgentina;
     protected static  MatchTeam teamAustralia;
 
-    private static Logger LOGGER = Logger.getLogger(ScoreBoardCommonsTest.class);
+    private static Logger LOGGER = LogManager.getLogger(ScoreBoardCommonsTest.class);
 
     @Before
     public void startTest() throws ScoreBoardException {
