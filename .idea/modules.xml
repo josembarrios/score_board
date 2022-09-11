@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/score_board_module/score_board_module.iml" filepath="$PROJECT_DIR$/score_board_module/score_board_module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/score_board_project.iml" filepath="$PROJECT_DIR$/score_board_project.iml" />
+    </modules>
+  </component>
+</project>
