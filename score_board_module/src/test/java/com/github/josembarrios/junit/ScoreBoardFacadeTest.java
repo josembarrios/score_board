@@ -1,5 +1,6 @@
 package com.github.josembarrios.junit;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -39,8 +40,7 @@ public class ScoreBoardFacadeTest extends ScoreBoardCommonsTest{
 
         Match match = new Match(teamMexico, teamCanada);
         scoreBoardFacade.initGame(match);
-
-        assertTrue("The game has been started, when it should not have been.", games == scoreBoardFacade.sortedGames().size());
+        assertEquals("The game has been started, when it should not have been.", Optional.of(games), Optional.of(scoreBoardFacade.sortedGames().size()));
     }
 
     @Test
@@ -66,12 +66,13 @@ public class ScoreBoardFacadeTest extends ScoreBoardCommonsTest{
         Match modifiedMatch = new Match(teamUruguay, teamItaly, MatchScore.of(0,1));
         scoreBoardFacade.updateScore(modifiedMatch);
         matchOptional = scoreBoardFacade.findMatch(modifiedMatch.getMatchKey());
-        assertTrue("The scoreboard has not been updated", matchOptional.get().getNumberMatchScore() == 1);
+        assertEquals("The scoreboard has not been updated", Optional.of(matchOptional.get().getNumberMatchScore()), Optional.of(1));
 
         Match modifiedMatch2 = new Match(teamUruguay, teamItaly, MatchScore.of(0,0));
         scoreBoardFacade.updateScore(modifiedMatch2);
         matchOptional = scoreBoardFacade.findMatch(modifiedMatch2.getMatchKey());
-        assertTrue("One of the teams has subtracted a goal on the scoreboard.", matchOptional.get().getNumberMatchScore() == 1);
+        assertEquals("One of the teams has subtracted a goal on the scoreboard.", Optional.of(matchOptional.get().getNumberMatchScore()), Optional.of(1));
+
 
         Match unknownMatch = new Match(teamArgentina, teamAustralia, MatchScore.of(1,1));
         scoreBoardFacade.updateScore(unknownMatch);

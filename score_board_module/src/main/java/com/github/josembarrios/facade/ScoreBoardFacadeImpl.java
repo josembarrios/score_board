@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 public class ScoreBoardFacadeImpl implements ScoreBoardFacade {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(ScoreBoardFacadeImpl.class);
+    private static Logger logger = LoggerFactory.getLogger(ScoreBoardFacadeImpl.class);
     private ScoreBoardDao dao;
 
     public ScoreBoardFacadeImpl() {
@@ -24,8 +24,9 @@ public class ScoreBoardFacadeImpl implements ScoreBoardFacade {
         try {
             this.dao.initGame(match);
         } catch (ScoreBoardException e) {
-            LOGGER.error("An error occurred while starting the game: " + e.getMessage());
+            logger.error(String.format("An error occurred while starting the game: %s", e.getMessage()));
         }
+
     }
 
     @Override
@@ -33,7 +34,7 @@ public class ScoreBoardFacadeImpl implements ScoreBoardFacade {
         try {
             this.dao.finishGame(match);
         } catch (ScoreBoardException e) {
-            LOGGER.error("An error occurred while finishing the game: " + e.getMessage());
+            logger.error(String.format("An error occurred while finishing the game: %s", e.getMessage()));
         }
     }
 
@@ -42,7 +43,7 @@ public class ScoreBoardFacadeImpl implements ScoreBoardFacade {
         try {
             this.dao.updateScore(updatedMatch);
         } catch (ScoreBoardException e) {
-            LOGGER.error("An error occurred updating the match result: " + e.getMessage());
+            logger.error(String.format("An error occurred updating the match result: %s", e.getMessage()));
         }
     }
 

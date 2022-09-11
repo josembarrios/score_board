@@ -7,7 +7,7 @@ public class ScoreBoardException extends Exception {
     private static final long serialVersionUID = 456590971443795716L;
 
     protected final String key;
-    protected final Object[] args;
+    protected final transient Object[] args;
 
     public ScoreBoardException(final String key, final Object... args) {
         super(toString(key, args), null);
